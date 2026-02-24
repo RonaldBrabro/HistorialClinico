@@ -1,0 +1,322 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>Psicologia Clinica</h3>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="guiaObservacion">
+    <div class="seccion-titulo"><h4>1. Guia de observacion</h4></div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Contacto visual</label>
+        <select formControlName="contactoVisual">
+          <option value="">Seleccione</option>
+          <option>Adecuado</option>
+          <option>Evade</option>
+          <option>Mirada fija</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Riesgo suicida</label>
+        <select formControlName="riesgoSuicida">
+          <option value="">Seleccione</option>
+          <option *ngFor="let opcion of riesgoSuicida" [value]="opcion">{{ opcion }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of expresionLenguaje">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.expresionLenguaje'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.expresionLenguaje'), opcion)"
+        />
+        Expresion y lenguaje - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Expresion y lenguaje (otros)</label>
+      <input type="text" formControlName="expresionLenguajeOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of habitosPersonales">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.habitosPersonales'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.habitosPersonales'), opcion)"
+        />
+        Habitos personales - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Habitos personales (otros)</label>
+      <input type="text" formControlName="habitosPersonalesOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of conductaSocial">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.conductaSocial'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.conductaSocial'), opcion)"
+        />
+        Conducta social - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Conducta social (otros)</label>
+      <input type="text" formControlName="conductaSocialOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of actividadesIntelectivas">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.actividadesIntelectivas'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.actividadesIntelectivas'), opcion)"
+        />
+        Actividades intelectivas - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Actividades intelectivas (otros)</label>
+      <input type="text" formControlName="actividadesIntelectivasOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of aspectos">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.aspectos'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.aspectos'), opcion)"
+        />
+        Aspectos - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Aspectos (otros)</label>
+      <input type="text" formControlName="aspectosOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of formaRelacion">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.formaRelacion'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.formaRelacion'), opcion)"
+        />
+        Forma de relacion - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Forma de relacion (otros)</label>
+      <input type="text" formControlName="formaRelacionOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of sexoContrario">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.sexoContrario'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.sexoContrario'), opcion)"
+        />
+        Sexo contrario - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Sexo contrario (otros)</label>
+      <input type="text" formControlName="sexoContrarioOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of agresividad">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.agresividad'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.agresividad'), opcion)"
+        />
+        Agresividad - {{ opcion }}
+      </label>
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of humor">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.humor'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.humor'), opcion)"
+        />
+        Humor - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Humor (otros)</label>
+      <input type="text" formControlName="humorOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of actividades">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.actividades'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.actividades'), opcion)"
+        />
+        Actividades - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Actividades (otros)</label>
+      <input type="text" formControlName="actividadesOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of comportamiento">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.comportamiento'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.comportamiento'), opcion)"
+        />
+        Comportamiento - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Comportamiento (otros)</label>
+      <input type="text" formControlName="comportamientoOtros" />
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of afectividad">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('guiaObservacion.afectividad'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('guiaObservacion.afectividad'), opcion)"
+        />
+        Afectividad - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Afectividad (otros)</label>
+      <input type="text" formControlName="afectividadOtros" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="examenFunciones">
+    <div class="seccion-titulo"><h4>2. Examen de funciones</h4></div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesExamenFunciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('examenFunciones.estadoConciencia'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('examenFunciones.estadoConciencia'), opcion)"
+        />
+        Estado de conciencia - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo"><label>Estado de conciencia (otros)</label><input type="text" formControlName="estadoConcienciaOtros" /></div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesExamenFunciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('examenFunciones.atencion'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('examenFunciones.atencion'), opcion)"
+        />
+        Atencion - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo"><label>Atencion (otros)</label><input type="text" formControlName="atencionOtros" /></div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesExamenFunciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('examenFunciones.sensopercepcion'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('examenFunciones.sensopercepcion'), opcion)"
+        />
+        Sensopercepcion - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo"><label>Sensopercepcion (otros)</label><input type="text" formControlName="sensopercepcionOtros" /></div>
+
+    <div class="seccion-colapsable" formGroupName="memoria">
+      <div class="seccion-titulo"><h4>Memoria</h4></div>
+      <label><input type="checkbox" formControlName="cortoPlazo" /> Corto plazo</label>
+      <label><input type="checkbox" formControlName="largoPlazo" /> Largo plazo</label>
+      <label><input type="checkbox" formControlName="sinAlteracion" /> Sin alteracion</label>
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesExamenFunciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('examenFunciones.conductaMotora'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('examenFunciones.conductaMotora'), opcion)"
+        />
+        Conducta motora - {{ opcion }}
+      </label>
+    </div>
+
+    <div class="seccion-colapsable" formGroupName="estructuraPensamiento">
+      <div class="seccion-titulo"><h4>Estructura del pensamiento (0-3)</h4></div>
+      <div class="grid-formulario">
+        <div class="campo"><label>Incoherencia</label><input type="number" min="0" max="3" formControlName="incoherencia" /></div>
+        <div class="campo"><label>Bloqueos</label><input type="number" min="0" max="3" formControlName="bloqueos" /></div>
+        <div class="campo"><label>Perseveracion</label><input type="number" min="0" max="3" formControlName="perseveracion" /></div>
+        <div class="campo"><label>Disgregacion</label><input type="number" min="0" max="3" formControlName="disgregacion" /></div>
+        <div class="campo"><label>Estereotipias</label><input type="number" min="0" max="3" formControlName="estereotipias" /></div>
+        <div class="campo"><label>Neologismos</label><input type="number" min="0" max="3" formControlName="neologismos" /></div>
+        <div class="campo"><label>Musitacion</label><input type="number" min="0" max="3" formControlName="musitacion" /></div>
+        <div class="campo"><label>Sin alteracion</label><input type="number" min="0" max="3" formControlName="sinAlteracion" /></div>
+      </div>
+    </div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesExamenFunciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('examenFunciones.cursoPensamiento'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('examenFunciones.cursoPensamiento'), opcion)"
+        />
+        Curso pensamiento - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo"><label>Curso pensamiento (otros)</label><input type="text" formControlName="cursoPensamientoOtros" /></div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesExamenFunciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('examenFunciones.contenidoPensamiento'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('examenFunciones.contenidoPensamiento'), opcion)"
+        />
+        Contenido pensamiento - {{ opcion }}
+      </label>
+    </div>
+    <div class="campo"><label>Contenido pensamiento (otros)</label><input type="text" formControlName="contenidoPensamientoOtros" /></div>
+
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesExamenFunciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('examenFunciones.juicio'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('examenFunciones.juicio'), opcion)"
+        />
+        Juicio - {{ opcion }}
+      </label>
+    </div>
+
+    <div class="seccion-colapsable" formGroupName="orientacion">
+      <div class="seccion-titulo"><h4>Orientacion</h4></div>
+      <label><input type="checkbox" formControlName="tiempo" /> Tiempo</label>
+      <label><input type="checkbox" formControlName="espacio" /> Espacio</label>
+      <label><input type="checkbox" formControlName="aSiMismo" /> A si mismo</label>
+      <label><input type="checkbox" formControlName="aOtrasPersonas" /> A otras personas</label>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable">
+    <div class="seccion-titulo"><h4>3. Impresion diagnostica</h4></div>
+    <textarea formControlName="impresionDiagnostica" rows="6"></textarea>
+  </div>
+</section>

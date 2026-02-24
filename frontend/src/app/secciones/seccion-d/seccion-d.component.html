@@ -1,0 +1,183 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>D. Desarrollo evolutivo</h3>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="antecedentesPrenatales">
+    <div class="seccion-titulo">
+      <h4>Antecedentes prenatales</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Edad en que quedo embarazada</label>
+        <input type="number" formControlName="edadEmbarazo" />
+      </div>
+      <div class="campo">
+        <label>Hubo control prenatal</label>
+        <select formControlName="controlPrenatal">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Periodo del control prenatal</label>
+        <select formControlName="periodoControlPrenatal">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Complicaciones durante el embarazo</label>
+        <select formControlName="complicacionesEmbarazo">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Traumatismo</label>
+        <select formControlName="traumatismo">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Especifique traumatismo</label>
+        <input type="text" formControlName="traumatismoEspecificar" />
+      </div>
+      <div class="campo">
+        <label>Enfermedades</label>
+        <select formControlName="enfermedades">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Especifique enfermedades</label>
+        <input type="text" formControlName="enfermedadesEspecificar" />
+      </div>
+      <div class="campo">
+        <label>Alimentacion adecuada</label>
+        <select formControlName="alimentacionAdecuada">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="antecedentesPerinatales">
+    <div class="seccion-titulo">
+      <h4>Antecedentes perinatales</h4>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of tiposParto">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('antecedentesPerinatales.tiposParto')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('antecedentesPerinatales.tiposParto')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="seccion-titulo">
+      <h4>Maniobras de reanimacion</h4>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of maniobrasReanimacion">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('antecedentesPerinatales.maniobrasReanimacion')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('antecedentesPerinatales.maniobrasReanimacion')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="antecedentesPostnatales">
+    <div class="seccion-titulo">
+      <h4>Antecedentes postnatales</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Necesito incubadora</label>
+        <select formControlName="necesitoIncubadora">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Tiempo en dias en incubadora</label>
+        <input type="text" formControlName="tiempoIncubadoraDias" />
+      </div>
+      <div class="campo">
+        <label>Complicaciones</label>
+        <select formControlName="complicaciones">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Especifique complicaciones</label>
+        <input type="text" formControlName="complicacionesEspecificar" />
+      </div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="crecimientoDesarrollo">
+    <div class="seccion-titulo">
+      <h4>Crecimiento y desarrollo esperado</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Motor</label>
+        <select formControlName="motor">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Lenguaje</label>
+        <select formControlName="lenguaje">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Cognitivo</label>
+        <select formControlName="cognitivo">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Social</label>
+        <select formControlName="social">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="campo">
+    <label>Se cae o pierde equilibrio facilmente</label>
+    <select formControlName="pierdeEquilibrio">
+      <option value="">Seleccione</option>
+      <option>Si</option>
+      <option>No</option>
+    </select>
+  </div>
+</section>

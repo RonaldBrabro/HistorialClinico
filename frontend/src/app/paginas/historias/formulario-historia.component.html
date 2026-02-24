@@ -1,0 +1,32 @@
+<div class="tarjeta">
+  <div class="seccion-titulo">
+    <div>
+      <h2>{{ titulo }}</h2>
+      <p>Completa cada seccion en el orden solicitado.</p>
+    </div>
+    <span class="etiqueta-chip">Formulario unificado</span>
+  </div>
+
+  <form [formGroup]="formulario" (ngSubmit)="enviar()">
+    <app-encabezado [grupo]="obtenerGrupo('encabezado')"></app-encabezado>
+    <app-seccion-a [grupo]="obtenerGrupo('seccionA')"></app-seccion-a>
+    <app-seccion-b [grupo]="obtenerGrupo('seccionB')"></app-seccion-b>
+    <app-seccion-c [grupo]="obtenerGrupo('seccionC')"></app-seccion-c>
+    <app-seccion-d [grupo]="obtenerGrupo('seccionD')"></app-seccion-d>
+    <app-seccion-e [grupo]="obtenerGrupo('seccionE')"></app-seccion-e>
+    <app-seccion-f [grupo]="obtenerGrupo('seccionF')"></app-seccion-f>
+    <app-seccion-g [grupo]="obtenerGrupo('seccionG')"></app-seccion-g>
+    <app-seccion-h [grupo]="obtenerGrupo('seccionH')"></app-seccion-h>
+    <app-seccion-i [grupo]="obtenerGrupo('seccionI')"></app-seccion-i>
+    <app-seccion-j [grupo]="obtenerGrupo('seccionJ')"></app-seccion-j>
+    <app-seccion-k [grupo]="obtenerGrupo('seccionK')"></app-seccion-k>
+    <app-seccion-l [grupo]="obtenerGrupo('seccionL')"></app-seccion-l>
+    <app-psicologia-educativa [grupo]="obtenerGrupo('psicologiaEducativa')"></app-psicologia-educativa>
+    <app-fonoaudiologia [grupo]="obtenerGrupo('fonoaudiologia')"></app-fonoaudiologia>
+    <app-psicologia-clinica [grupo]="obtenerGrupo('psicologiaClinica')"></app-psicologia-clinica>
+
+    <div class="acciones-formulario">
+      <button class="boton" type="submit">{{ textoBoton }}</button>
+    </div>
+  </form>
+</div>

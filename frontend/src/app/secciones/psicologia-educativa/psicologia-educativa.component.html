@@ -1,0 +1,243 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>Psicologia Educativa</h3>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="datosAcademicos">
+    <div class="seccion-titulo">
+      <h4>1. Datos academicos</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Inclusion educativa</label>
+        <select formControlName="inclusionEducativa">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Adaptaciones curriculares</label>
+        <select formControlName="adaptacionesCurriculares">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Grado de adaptacion</label>
+        <select formControlName="gradoAdaptacion">
+          <option value="">Seleccione</option>
+          <option>Grado 1</option>
+          <option>Grado 2</option>
+          <option>Grado 3</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of asignaturas">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('datosAcademicos.asignaturas'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('datosAcademicos.asignaturas'), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Otro (especificar)</label>
+      <input type="text" formControlName="asignaturasOtro" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="desarrolloAcademico">
+    <div class="seccion-titulo">
+      <h4>2. Desarrollo academico</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Perdida de anio/ciclo</label>
+        <select formControlName="perdidaAnio">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Desercion academica</label>
+        <select formControlName="desercionAcademica">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Cambio institucion</label>
+        <select formControlName="cambioInstitucion">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Problemas aprendizaje</label>
+        <select formControlName="problemasAprendizaje">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Problemas conducta</label>
+        <select formControlName="problemasConducta">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Problemas lenguaje y habla</label>
+        <select formControlName="problemasLenguajeHabla">
+          <option value="">Seleccione</option>
+          <option>Si</option>
+          <option>No</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="evaluacionesAnteriores">
+    <div class="seccion-titulo">
+      <h4>3. Evaluaciones anteriores</h4>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of evaluaciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('evaluacionesAnteriores.tipos'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('evaluacionesAnteriores.tipos'), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Especificar</label>
+      <input type="text" formControlName="especificar" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="recibeTratamiento">
+    <div class="seccion-titulo">
+      <h4>Recibe tratamiento</h4>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of evaluaciones">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('recibeTratamiento.tipos'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('recibeTratamiento.tipos'), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Especificar</label>
+      <input type="text" formControlName="especificar" />
+    </div>
+  </div>
+
+  <div class="grid-formulario">
+    <div class="campo">
+      <label>Aprovechamiento general</label>
+      <select formControlName="aprovechamientoGeneral">
+        <option value="">Seleccione</option>
+        <option>Bueno</option>
+        <option>Regular</option>
+        <option>Malo</option>
+        <option>Deficiente</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Ritmo aprendizaje</label>
+      <select formControlName="ritmoAprendizaje">
+        <option value="">Seleccione</option>
+        <option>Lento</option>
+        <option>Rapido</option>
+        <option>Promedio</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Estilos aprendizaje</label>
+      <select formControlName="estilosAprendizaje">
+        <option value="">Seleccione</option>
+        <option>Visual</option>
+        <option>Auditivo</option>
+        <option>Kinestesico</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="resultadosReactivos">
+    <div class="seccion-titulo">
+      <h4>Resultados de los reactivos</h4>
+    </div>
+
+    <div class="tarjeta">
+      <h4>WAIS-IV</h4>
+      <table class="tabla-editable" formArrayName="wais">
+        <thead>
+          <tr>
+            <th>Reactivo</th>
+            <th>Puntuacion compuesta</th>
+            <th>Interpretacion</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fila of obtenerTablaWais().controls; let i = index" [formGroupName]="i">
+            <td><input type="text" formControlName="reactivo" /></td>
+            <td><input type="text" formControlName="puntuacion" /></td>
+            <td><input type="text" formControlName="interpretacion" /></td>
+            <td>
+              <button class="boton-secundario" type="button" (click)="eliminarFilaWais(i)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="boton" type="button" (click)="agregarFilaWais()">Agregar fila</button>
+      <div class="tarjeta" style="margin-top: 1rem;">
+        <h4>Interpretacion WAIS-IV</h4>
+        <p *ngFor="let item of interpretacionesWais">{{ item }}</p>
+      </div>
+    </div>
+
+    <div class="tarjeta" style="margin-top: 1.5rem;">
+      <h4>K-BIT</h4>
+      <table class="tabla-editable" formArrayName="kbit">
+        <thead>
+          <tr>
+            <th>Reactivo</th>
+            <th>Puntuacion tipica</th>
+            <th>Categoria descriptiva</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fila of obtenerTablaKbit().controls; let i = index" [formGroupName]="i">
+            <td><input type="text" formControlName="reactivo" /></td>
+            <td><input type="text" formControlName="puntuacion" /></td>
+            <td><input type="text" formControlName="categoria" /></td>
+            <td>
+              <button class="boton-secundario" type="button" (click)="eliminarFilaKbit(i)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="boton" type="button" (click)="agregarFilaKbit()">Agregar fila</button>
+      <div class="tarjeta" style="margin-top: 1rem;">
+        <h4>Interpretacion K-BIT</h4>
+        <p *ngFor="let item of interpretacionesKbit">{{ item }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,470 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>A. Datos personales</h3>
+  </div>
+
+  <div class="grid-formulario">
+    <div class="campo">
+      <label>Nombres y Apellidos</label>
+      <input type="text" formControlName="nombresApellidos" />
+    </div>
+    <div class="campo">
+      <label>Lugar de nacimiento</label>
+      <input type="text" formControlName="lugarNacimiento" />
+    </div>
+    <div class="campo">
+      <label>Provincia</label>
+      <select formControlName="provinciaNacimiento">
+        <option value="">Seleccione</option>
+        <option *ngFor="let provincia of provincias" [value]="provincia">{{ provincia }}</option>
+      </select>
+    </div>
+    <div class="campo" *ngIf="grupo?.get('provinciaNacimiento')?.value === 'Otro'">
+      <label>Otra provincia</label>
+      <input type="text" formControlName="otraProvinciaNacimiento" />
+    </div>
+    <div class="campo">
+      <label>Fecha de nacimiento</label>
+      <input type="date" formControlName="fechaNacimiento" />
+    </div>
+    <div class="campo">
+      <label>Edad (anios)</label>
+      <input type="text" formControlName="edadAnios" />
+    </div>
+    <div class="campo">
+      <label>Edad (meses)</label>
+      <input type="text" formControlName="edadMeses" />
+    </div>
+    <div class="campo">
+      <label>Numero de cedula</label>
+      <input type="text" formControlName="numeroCedula" />
+    </div>
+    <div class="campo">
+      <label>Estado civil</label>
+      <select formControlName="estadoCivil">
+        <option value="">Seleccione</option>
+        <option *ngFor="let estado of estadosCiviles" [value]="estado">{{ estado }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable">
+    <div class="seccion-titulo">
+      <h4>Situacion laboral (maximo 2)</h4>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of situacionesLaborales">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('situacionLaboral'), opcion)"
+          [disabled]="!utilidades.opcionSeleccionada(obtenerArray('situacionLaboral'), opcion) && obtenerArray('situacionLaboral').length >= 2"
+          (change)="utilidades.alternarOpcion(obtenerArray('situacionLaboral'), opcion, 2)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Otro (especificar)</label>
+      <input type="text" formControlName="situacionLaboralOtro" />
+    </div>
+  </div>
+
+  <div class="campo">
+    <label>Etiologia de la discapacidad</label>
+    <select formControlName="etiologiaDiscapacidad">
+      <option value="">Seleccione</option>
+      <option *ngFor="let opcion of etiologiasDiscapacidad" [value]="opcion">{{ opcion }}</option>
+    </select>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="discapacidadFisica">
+    <div class="seccion-titulo">
+      <h4>Discapacidad fisica</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Tiene carnet</label>
+        <select formControlName="tieneCarnet">
+          <option value="">Seleccione</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>% carnet</label>
+        <input type="text" formControlName="porcentajeCarnet" />
+      </div>
+      <div class="campo">
+        <label>Grado</label>
+        <select formControlName="grado">
+          <option value="">Seleccione</option>
+          <option>Leve</option>
+          <option>Moderado</option>
+          <option>Grave</option>
+          <option>Muy grave</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of etiologiaDiscapacidadFisica">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadFisica.etiologia')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadFisica.etiologia')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Otro (especificar)</label>
+      <input type="text" formControlName="etiologiaOtro" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="discapacidadIntelectual">
+    <div class="seccion-titulo">
+      <h4>Discapacidad intelectual</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Tiene carnet</label>
+        <select formControlName="tieneCarnet">
+          <option value="">Seleccione</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>% carnet</label>
+        <input type="text" formControlName="porcentajeCarnet" />
+      </div>
+      <div class="campo">
+        <label>Grado</label>
+        <select formControlName="grado">
+          <option value="">Seleccione</option>
+          <option>Leve</option>
+          <option>Moderado</option>
+          <option>Grave</option>
+          <option>Muy grave</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of etiologiaDiscapacidadIntelectual">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadIntelectual.etiologia')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadIntelectual.etiologia')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Otro (especificar)</label>
+      <input type="text" formControlName="etiologiaOtro" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="discapacidadAuditiva">
+    <div class="seccion-titulo">
+      <h4>Discapacidad auditiva</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Tiene carnet</label>
+        <select formControlName="tieneCarnet">
+          <option value="">Seleccione</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>% carnet</label>
+        <input type="text" formControlName="porcentajeCarnet" />
+      </div>
+      <div class="campo">
+        <label>Grado</label>
+        <select formControlName="grado">
+          <option value="">Seleccione</option>
+          <option>Leve</option>
+          <option>Moderado</option>
+          <option>Grave</option>
+          <option>Muy grave</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of etiologiaDiscapacidadAuditiva">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadAuditiva.etiologia')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadAuditiva.etiologia')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Especificidad</label>
+      <select formControlName="especificidad">
+        <option value="">Seleccione</option>
+        <option *ngFor="let opcion of especificidadAuditiva" [value]="opcion">{{ opcion }}</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Especificar</label>
+      <input type="text" formControlName="especificidadDetalle" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="discapacidadVisual">
+    <div class="seccion-titulo">
+      <h4>Discapacidad visual</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Tiene carnet</label>
+        <select formControlName="tieneCarnet">
+          <option value="">Seleccione</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>% carnet</label>
+        <input type="text" formControlName="porcentajeCarnet" />
+      </div>
+      <div class="campo">
+        <label>Grado</label>
+        <select formControlName="grado">
+          <option value="">Seleccione</option>
+          <option>Leve</option>
+          <option>Moderado</option>
+          <option>Grave</option>
+          <option>Muy grave</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of etiologiaDiscapacidadVisual">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadVisual.etiologia')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadVisual.etiologia')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Especificidad</label>
+      <select formControlName="especificidad">
+        <option value="">Seleccione</option>
+        <option *ngFor="let opcion of especificidadVisual" [value]="opcion">{{ opcion }}</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Especificar</label>
+      <input type="text" formControlName="especificidadDetalle" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="discapacidadPsicosocial">
+    <div class="seccion-titulo">
+      <h4>Discapacidad psicosocial</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Tiene carnet</label>
+        <select formControlName="tieneCarnet">
+          <option value="">Seleccione</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>% carnet</label>
+        <input type="text" formControlName="porcentajeCarnet" />
+      </div>
+      <div class="campo">
+        <label>Grado</label>
+        <select formControlName="grado">
+          <option value="">Seleccione</option>
+          <option>Leve</option>
+          <option>Moderado</option>
+          <option>Grave</option>
+          <option>Muy grave</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of etiologiaDiscapacidadPsicosocial">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadPsicosocial.etiologia')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadPsicosocial.etiologia')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Otro (especificar)</label>
+      <input type="text" formControlName="etiologiaOtro" />
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="discapacidadLenguaje">
+    <div class="seccion-titulo">
+      <h4>Discapacidad de lenguaje</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Tiene carnet</label>
+        <select formControlName="tieneCarnet">
+          <option value="">Seleccione</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>% carnet</label>
+        <input type="text" formControlName="porcentajeCarnet" />
+      </div>
+      <div class="campo">
+        <label>Grado</label>
+        <select formControlName="grado">
+          <option value="">Seleccione</option>
+          <option>Leve</option>
+          <option>Moderado</option>
+          <option>Grave</option>
+          <option>Muy grave</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of etiologiaDiscapacidadLenguaje">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadLenguaje.etiologia')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadLenguaje.etiologia')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="seccion-titulo">
+      <h4>Primarios</h4>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of primariosLenguaje">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadLenguaje.primarios')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadLenguaje.primarios')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="seccion-titulo">
+      <h4>Secundarios</h4>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of secundariosLenguaje">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadLenguaje.secundarios')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadLenguaje.secundarios')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Especificar</label>
+      <textarea formControlName="especificar"></textarea>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="discapacidadMultiple">
+    <div class="seccion-titulo">
+      <h4>Discapacidad multiple</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Tiene carnet</label>
+        <select formControlName="tieneCarnet">
+          <option value="">Seleccione</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>% carnet</label>
+        <input type="text" formControlName="porcentajeCarnet" />
+      </div>
+      <div class="campo">
+        <label>Grado</label>
+        <select formControlName="grado">
+          <option value="">Seleccione</option>
+          <option>Leve</option>
+          <option>Moderado</option>
+          <option>Grave</option>
+          <option>Muy grave</option>
+        </select>
+      </div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of opcionesDiscapacidadMultiple">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(utilidades.comoFormArray(grupo?.get('discapacidadMultiple.opciones')), opcion)"
+          (change)="utilidades.alternarOpcion(utilidades.comoFormArray(grupo?.get('discapacidadMultiple.opciones')), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+    <div class="campo">
+      <label>Especificar</label>
+      <textarea formControlName="especificar"></textarea>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="datosInstitucionales">
+    <div class="seccion-titulo">
+      <h4>Datos institucionales</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Institucion educativa</label>
+        <select formControlName="institucionEducativa">
+          <option value="">Seleccione</option>
+          <option *ngFor="let opcion of institucionesEducativas" [value]="opcion">{{ opcion }}</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Carrera</label>
+        <select formControlName="carrera">
+          <option value="">Seleccione</option>
+          <option *ngFor="let opcion of carreras" [value]="opcion">{{ opcion }}</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Ciclo</label>
+        <input type="text" formControlName="ciclo" />
+      </div>
+      <div class="campo">
+        <label>Fuente de informacion</label>
+        <select formControlName="fuenteInformacion">
+          <option value="">Seleccione</option>
+          <option>Directa</option>
+          <option>Indirecta</option>
+          <option>Mixta</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Telefono</label>
+        <input type="text" formControlName="telefono" />
+      </div>
+      <div class="campo">
+        <label>Correo</label>
+        <input type="email" formControlName="correo" />
+      </div>
+    </div>
+  </div>
+</section>

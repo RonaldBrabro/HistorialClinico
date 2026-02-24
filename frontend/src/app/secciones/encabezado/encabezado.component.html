@@ -1,0 +1,21 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>Encabezado</h3>
+  </div>
+  <div class="grid-formulario">
+    <div class="campo">
+      <label for="numeroHistoriaClinica"># de Historia Clinica</label>
+      <input id="numeroHistoriaClinica" type="text" formControlName="numeroHistoriaClinica" maxlength="6" />
+      <span class="mensaje-error" *ngIf="grupo?.get('numeroHistoriaClinica')?.touched && grupo?.get('numeroHistoriaClinica')?.invalid">
+        Solo numeros (maximo 6 digitos).
+      </span>
+    </div>
+    <div class="campo">
+      <label for="fechaEncabezado">Fecha</label>
+      <input id="fechaEncabezado" type="date" formControlName="fecha" />
+      <span class="mensaje-error" *ngIf="grupo?.get('fecha')?.touched && grupo?.get('fecha')?.invalid">
+        La fecha es obligatoria.
+      </span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+.barra-lateral {
+  background: linear-gradient(160deg, #0f6b6f 0%, #12484c 60%, #18393c 100%);
+  color: #ffffff;
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  min-height: 100vh;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.marca-icono {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.marca h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-family: var(--fuente-titulos);
+}
+
+.marca p {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu a {
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  color: #ffffff;
+  opacity: 0.85;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.menu a.activo,
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  opacity: 1;
+}
+
+.bloque-info {
+  margin-top: auto;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.etiqueta {
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  opacity: 0.7;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 0.4rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .barra-lateral {
+    min-height: auto;
+  }
+}

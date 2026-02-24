@@ -1,0 +1,30 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>E. Conductas alimentarias</h3>
+  </div>
+
+  <div class="campo">
+    <label>Conducta alimentaria</label>
+    <select formControlName="conductaAlimentaria">
+      <option value="">Seleccione</option>
+      <option value="Funcional">Funcional</option>
+      <option value="Disfuncional">Disfuncional</option>
+    </select>
+  </div>
+
+  <div class="lista-check">
+    <label *ngFor="let opcion of opciones">
+      <input
+        type="checkbox"
+        [checked]="utilidades.opcionSeleccionada(obtenerArray(), opcion)"
+        (change)="utilidades.alternarOpcion(obtenerArray(), opcion)"
+      />
+      {{ opcion }}
+    </label>
+  </div>
+
+  <div class="campo">
+    <label>Otros</label>
+    <input type="text" formControlName="otros" />
+  </div>
+</section>

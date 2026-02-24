@@ -1,0 +1,15 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>H. Momentos evolutivos en el desarrollo</h3>
+  </div>
+  <div class="lista-check">
+    <label *ngFor="let opcion of opciones">
+      <input
+        type="checkbox"
+        [checked]="utilidades.opcionSeleccionada(obtenerArray(), opcion)"
+        (change)="utilidades.alternarOpcion(obtenerArray(), opcion)"
+      />
+      {{ opcion }}
+    </label>
+  </div>
+</section>

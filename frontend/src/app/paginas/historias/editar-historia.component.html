@@ -1,0 +1,8 @@
+<div *ngIf="cargando">Cargando historia...</div>
+<app-formulario-historia
+  *ngIf="!cargando"
+  [formulario]="formulario"
+  titulo="Editar historia clinica"
+  textoBoton="Guardar cambios"
+  (guardar)="actualizar()"
+></app-formulario-historia>

@@ -1,0 +1,30 @@
+<div class="login-contenedor">
+  <div class="tarjeta login-tarjeta">
+    <h2>Ingreso al sistema</h2>
+    <p>Accede con tu usuario clinico para gestionar historias.</p>
+
+    <form [formGroup]="formulario" (ngSubmit)="ingresar()">
+      <div class="campo">
+        <label for="usuario">Usuario</label>
+        <input id="usuario" type="text" formControlName="usuario" />
+        <span class="mensaje-error" *ngIf="formulario.get('usuario')?.touched && formulario.get('usuario')?.invalid">
+          El usuario es obligatorio.
+        </span>
+      </div>
+
+      <div class="campo">
+        <label for="contrasena">Contrasena</label>
+        <input id="contrasena" type="password" formControlName="contrasena" />
+        <span class="mensaje-error" *ngIf="formulario.get('contrasena')?.touched && formulario.get('contrasena')?.invalid">
+          La contrasena es obligatoria.
+        </span>
+      </div>
+
+      <p class="mensaje-error" *ngIf="error">{{ error }}</p>
+
+      <button class="boton" type="submit" [disabled]="cargando">
+        {{ cargando ? 'Ingresando...' : 'Ingresar' }}
+      </button>
+    </form>
+  </div>
+</div>

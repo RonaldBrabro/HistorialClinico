@@ -1,0 +1,19 @@
+<div class="app-contenedor">
+  <app-barra-lateral></app-barra-lateral>
+  <main class="contenido-principal">
+    <header class="cabecera">
+      <div class="cabecera-titulos">
+        <p class="cabecera-etiqueta">Sistema Clinico</p>
+        <h1>Historia Clinica Unificada</h1>
+      </div>
+      <div class="cabecera-acciones">
+        <a class="boton-secundario" routerLink="/demo-js">Demo JS</a>
+        <a class="boton" routerLink="/historias-clinicas/nueva">Nueva historia</a>
+      </div>
+    </header>
+
+    <section class="contenedor-rutas">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

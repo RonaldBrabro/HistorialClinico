@@ -1,0 +1,36 @@
+<div class="tarjeta">
+  <div class="seccion-titulo">
+    <div>
+      <h2>Historias clinicas</h2>
+      <p>Listado general con acceso rapido a detalle y edicion.</p>
+    </div>
+    <a class="boton" routerLink="/historias-clinicas/nueva">Nueva historia</a>
+  </div>
+
+  <p *ngIf="cargando">Cargando historias...</p>
+  <p class="mensaje-error" *ngIf="error">{{ error }}</p>
+
+  <table class="tabla-editable" *ngIf="!cargando && historias.length">
+    <thead>
+      <tr>
+        <th># Historia</th>
+        <th>Fecha</th>
+        <th>Paciente</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let historia of historias">
+        <td>{{ historia.encabezado?.numeroHistoriaClinica }}</td>
+        <td>{{ historia.encabezado?.fecha || '-' }}</td>
+        <td>{{ historia.seccionA?.['nombresApellidos'] || '-' }}</td>
+        <td>
+          <a class="boton-secundario" [routerLink]="['/historias-clinicas', historia.id]">Detalle</a>
+          <a class="boton-secundario" [routerLink]="['/historias-clinicas', historia.id, 'editar']">Editar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!cargando && !historias.length">No hay historias registradas.</p>
+</div>

@@ -1,0 +1,22 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>C. Datos familiares</h3>
+  </div>
+
+  <div class="grid-formulario">
+    <div class="campo">
+      <label>Tipo de familia</label>
+      <select formControlName="tipoFamilia">
+        <option value="">Seleccione</option>
+        <option *ngFor="let tipo of tiposFamilia" [value]="tipo">{{ tipo }}</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Funcionamiento familiar</label>
+      <select formControlName="funcionamientoFamiliar">
+        <option value="">Seleccione</option>
+        <option *ngFor="let opcion of funcionamientos" [value]="opcion">{{ opcion }}</option>
+      </select>
+    </div>
+  </div>
+</section>

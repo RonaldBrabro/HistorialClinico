@@ -1,0 +1,161 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>Fonoaudiologia</h3>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="caracteristicasHabla">
+    <div class="seccion-titulo">
+      <h4>1. Caracteristicas del habla/lenguaje</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo"><label>Dificultad pronunciar</label><select formControlName="dificultadPronunciar"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Se traba</label><select formControlName="seTraba"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Se entiende</label><select formControlName="seEntiende"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Nombra objetos</label><select formControlName="nombraObjetos"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Comprende</label><select formControlName="comprende"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Reconoce fuente sonora</label><select formControlName="reconoceFuenteSonora"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Comunicacion preferente</label><select formControlName="comunicacionPreferente"><option value="">Seleccione</option><option>Verbal</option><option>Gestual</option><option>Mixta</option></select></div>
+      <div class="campo"><label>Examen audiologico</label><select formControlName="examenAudiologico"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Diagnostico audiologico</label><select formControlName="diagnosticoAudiologico"><option value="">Seleccione</option><option *ngFor="let opcion of diagnosticosAudiologicos" [value]="opcion">{{ opcion }}</option></select></div>
+      <div class="campo"><label>Diagnostico fonoaudiologico previo</label><select formControlName="diagnosticoFonoPrevio"><option value="">Seleccione</option><option *ngFor="let opcion of diagnosticosFono" [value]="opcion">{{ opcion }}</option></select></div>
+      <div class="campo"><label>Perdida audicion pasada</label><select formControlName="perdidaAudicionPasada"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Infecciones oido frecuentes</label><select formControlName="infeccionesOidoFrecuentes"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Cual infeccion</label><input type="text" formControlName="infeccionesOidoCual" /></div>
+      <div class="campo"><label>Edad</label><input type="number" formControlName="infeccionesOidoEdad" /></div>
+      <div class="campo"><label>Fonacion tono apropiado</label><select formControlName="fonacionTonoApropiado"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Respiracion normal</label><select formControlName="respiracionNormal"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Situaciones altera tono</label><input type="text" formControlName="situacionesAlteraTono" /></div>
+      <div class="campo"><label>Desde cuando alteraciones voz</label><input type="text" formControlName="desdeCuandoAlteracionesVoz" /></div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="historiaClinicaAudicion">
+    <div class="seccion-titulo">
+      <h4>2. Historia clinica audicion</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo"><label>Perdida auditiva</label><select formControlName="perdidaAuditiva"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Unilateral o bilateral</label><select formControlName="lateralidad"><option value="">Seleccione</option><option>Derecho</option><option>Izquierdo</option><option>Bilateral</option></select></div>
+      <div class="campo"><label>Grado</label><select formControlName="grado"><option value="">Seleccione</option><option>Subita</option><option>Progresiva</option></select></div>
+      <div class="campo"><label>Permanencia</label><select formControlName="permanencia"><option value="">Seleccione</option><option>Temporal</option><option>Fluctuante</option><option>Permanente</option></select></div>
+      <div class="campo"><label>Otitis tipo</label><select formControlName="otitisTipo"><option value="">Seleccione</option><option>Medio</option><option>Agudo</option></select></div>
+      <div class="campo"><label>Otitis inicio</label><input type="date" formControlName="otitisInicio" /></div>
+      <div class="campo"><label>Otitis fin</label><input type="date" formControlName="otitisFin" /></div>
+      <div class="campo"><label>Antecedentes familiares</label><select formControlName="antecedentesFamiliares"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Exposicion ruidos</label><select formControlName="exposicionRuidos"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Exposicion inicio</label><input type="date" formControlName="exposicionRuidosInicio" /></div>
+      <div class="campo"><label>Exposicion fin</label><input type="date" formControlName="exposicionRuidosFin" /></div>
+      <div class="campo"><label>Ototoxicos</label><select formControlName="ototoxicos"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Infecciones</label><select formControlName="infecciones"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Uso audifonos</label><select formControlName="usoAudifonos"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Uso audifonos inicio</label><input type="date" formControlName="usoAudifonosInicio" /></div>
+      <div class="campo"><label>Uso audifonos fin</label><input type="date" formControlName="usoAudifonosFin" /></div>
+      <div class="campo"><label>Implante coclear</label><select formControlName="implanteCoclear"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Tratamiento fono previo</label><select formControlName="tratamientoFonoPrevio"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="otalgia">
+    <div class="seccion-titulo"><h4>Otalgia</h4></div>
+    <div class="grid-formulario">
+      <div class="campo"><label>Presenta</label><select formControlName="presenta"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Unilateral/bilateral</label><select formControlName="lateralidad"><option value="">Seleccione</option><option>Unilateral</option><option>Bilateral</option></select></div>
+      <div class="campo"><label>Continua/intermitente</label><select formControlName="tipo"><option value="">Seleccione</option><option>Continua</option><option>Intermitente</option></select></div>
+      <div class="campo"><label>Media/aguda/cronica</label><select formControlName="severidad"><option value="">Seleccione</option><option>Media</option><option>Aguda</option><option>Cronica</option></select></div>
+      <div class="campo"><label>Asociada infeccion respiratoria alta</label><select formControlName="asociadaInfeccionRespiratoria"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Punzante</label><input type="text" formControlName="punzante" /></div>
+      <div class="campo"><label>Pulsatil</label><input type="text" formControlName="pulsatil" /></div>
+      <div class="campo"><label>Progresivo</label><input type="text" formControlName="progresivo" /></div>
+      <div class="campo"><label>Opresivo</label><input type="text" formControlName="opresivo" /></div>
+      <div class="campo"><label>Pruriginoso</label><input type="text" formControlName="pruriginoso" /></div>
+      <div class="campo"><label>Aumenta masticar</label><select formControlName="aumentaMasticar"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Disminuye calor local</label><select formControlName="disminuyeCalorLocal"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Aumenta calor local</label><select formControlName="aumentaCalorLocal"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="otorrea">
+    <div class="seccion-titulo"><h4>Otorrea</h4></div>
+    <div class="grid-formulario">
+      <div class="campo"><label>Presenta</label><select formControlName="presenta"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Unilateral/bilateral</label><select formControlName="lateralidad"><option value="">Seleccione</option><option>Unilateral</option><option>Bilateral</option></select></div>
+      <div class="campo"><label>Continua/intermitente</label><select formControlName="tipo"><option value="">Seleccione</option><option>Continua</option><option>Intermitente</option></select></div>
+      <div class="campo"><label>Media/aguda/cronica</label><select formControlName="severidad"><option value="">Seleccione</option><option>Media</option><option>Aguda</option><option>Cronica</option></select></div>
+      <div class="campo"><label>Asociada infeccion respiratoria alta</label><select formControlName="asociadaInfeccionRespiratoria"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Asociada infeccion aguda oido</label><select formControlName="asociadaInfeccionAguda"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+    </div>
+    <div class="lista-check">
+      <label *ngFor="let opcion of aspectoOtorrea">
+        <input
+          type="checkbox"
+          [checked]="utilidades.opcionSeleccionada(obtenerArray('otorrea.aspecto'), opcion)"
+          (change)="utilidades.alternarOpcion(obtenerArray('otorrea.aspecto'), opcion)"
+        />
+        {{ opcion }}
+      </label>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="antecedentesAuditivos">
+    <div class="seccion-titulo"><h4>Antecedentes auditivos</h4></div>
+    <div class="grid-formulario" formGroupName="sintomas">
+      <div class="campo"><label>Otalgia</label><select formControlName="otalgia"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Oido tapado</label><select formControlName="oidoTapado"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Autofonia</label><select formControlName="autofonia"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Otorrea</label><select formControlName="otorrea"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+    </div>
+    <div class="grid-formulario" formGroupName="lados">
+      <div class="campo"><label>Otalgia (lado)</label><select formControlName="otalgia"><option value="">Seleccione</option><option>Bilateral</option><option>Derecho</option><option>Izquierdo</option></select></div>
+      <div class="campo"><label>Oido tapado (lado)</label><select formControlName="oidoTapado"><option value="">Seleccione</option><option>Bilateral</option><option>Derecho</option><option>Izquierdo</option></select></div>
+      <div class="campo"><label>Autofonia (lado)</label><select formControlName="autofonia"><option value="">Seleccione</option><option>Bilateral</option><option>Derecho</option><option>Izquierdo</option></select></div>
+      <div class="campo"><label>Otorrea (lado)</label><select formControlName="otorrea"><option value="">Seleccione</option><option>Bilateral</option><option>Derecho</option><option>Izquierdo</option></select></div>
+    </div>
+    <div class="grid-formulario" formGroupName="adicionales">
+      <div class="campo"><label>Sube volumen TV/radio</label><select formControlName="subeVolumen"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Tinnitus</label><select formControlName="tinnitus"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Expuesto a ruidos</label><select formControlName="expuestoRuidos"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>No oye voz baja</label><select formControlName="noOyeVozBaja"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Le dicen habla mas fuerte</label><select formControlName="leDicenHablaFuerte"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Ayuda auditiva</label><input type="text" formControlName="ayudaAuditiva" /></div>
+      <div class="campo"><label>Percibe igual ambos oidos</label><select formControlName="percibeIgual"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Oido escucha mejor</label><select formControlName="oidoEscuchaMejor"><option value="">Seleccione</option><option>Ambos</option><option>Derecho</option><option>Izquierdo</option></select></div>
+      <div class="campo"><label>Tiempo con problemas</label><input type="text" formControlName="tiempoProblemas" /></div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="antecedentesVestibulares">
+    <div class="seccion-titulo"><h4>Antecedentes vestibulares</h4></div>
+    <div class="grid-formulario">
+      <div class="campo"><label>Falta equilibrio al caminar</label><select formControlName="faltaEquilibrio"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Mareos barquito</label><select formControlName="mareosBarquito"><option value="">Seleccione</option><option>Siempre</option><option>A veces</option><option>Al caminar</option><option>Al pararse</option></select></div>
+      <div class="campo"><label>Vertigo</label><select formControlName="vertigo"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="otoscopia">
+    <div class="seccion-titulo"><h4>Otoscopia</h4></div>
+    <div class="grid-formulario" formGroupName="oidoDerecho">
+      <div class="campo"><label>Oido derecho - Pabellon</label><select formControlName="palpacionPabellon"><option value="">Seleccione</option><option>Normal</option><option>Dolor</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>Mastoides</label><select formControlName="palpacionMastoides"><option value="">Seleccione</option><option>Normal</option><option>Dolor</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>CAE</label><select formControlName="cae"><option value="">Seleccione</option><option>Normal</option><option>Irritado</option><option>Supuracion</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>Obstruccion</label><select formControlName="obstruccion"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Obstruccion tipo</label><select formControlName="obstruccionTipo"><option value="">Seleccione</option><option>Total</option><option>Parcial</option></select></div>
+      <div class="campo"><label>Membrana apariencia</label><select formControlName="membranaApariencia"><option value="">Seleccione</option><option>Normal</option><option>Irritado</option><option>Supuracion</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>Perforacion</label><select formControlName="perforacion"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Burbuja</label><select formControlName="burbuja"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Coloracion</label><select formControlName="coloracion"><option value="">Seleccione</option><option>Normal</option><option>Azul</option><option>Eritematosa</option><option>Opaca</option></select></div>
+    </div>
+
+    <div class="grid-formulario" formGroupName="oidoIzquierdo">
+      <div class="campo"><label>Oido izquierdo - Pabellon</label><select formControlName="palpacionPabellon"><option value="">Seleccione</option><option>Normal</option><option>Dolor</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>Mastoides</label><select formControlName="palpacionMastoides"><option value="">Seleccione</option><option>Normal</option><option>Dolor</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>CAE</label><select formControlName="cae"><option value="">Seleccione</option><option>Normal</option><option>Irritado</option><option>Supuracion</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>Obstruccion</label><select formControlName="obstruccion"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Obstruccion tipo</label><select formControlName="obstruccionTipo"><option value="">Seleccione</option><option>Total</option><option>Parcial</option></select></div>
+      <div class="campo"><label>Membrana apariencia</label><select formControlName="membranaApariencia"><option value="">Seleccione</option><option>Normal</option><option>Irritado</option><option>Supuracion</option><option>Inflamado</option></select></div>
+      <div class="campo"><label>Perforacion</label><select formControlName="perforacion"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Burbuja</label><select formControlName="burbuja"><option value="">Seleccione</option><option>Si</option><option>No</option></select></div>
+      <div class="campo"><label>Coloracion</label><select formControlName="coloracion"><option value="">Seleccione</option><option>Normal</option><option>Azul</option><option>Eritematosa</option><option>Opaca</option></select></div>
+    </div>
+  </div>
+</section>

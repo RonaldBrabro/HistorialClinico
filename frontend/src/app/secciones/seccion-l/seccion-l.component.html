@@ -1,0 +1,80 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>L. Aspecto psicosexual</h3>
+  </div>
+
+  <div class="grid-formulario">
+    <div class="campo">
+      <label>Sexo nacimiento</label>
+      <select formControlName="sexoNacimiento">
+        <option value="">Seleccione</option>
+        <option>Masculino</option>
+        <option>Femenino</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Genero</label>
+      <select formControlName="genero">
+        <option value="">Seleccione</option>
+        <option>Masculino</option>
+        <option>Femenino</option>
+        <option>Transgenero</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Orientacion</label>
+      <select formControlName="orientacion">
+        <option value="">Seleccione</option>
+        <option>Heterosexual</option>
+        <option>Homosexual</option>
+        <option>Bisexual</option>
+        <option>Asexual</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="seccion-colapsable" formGroupName="gradoInformacion">
+    <div class="seccion-titulo">
+      <h4>Grado de informacion sobre sexualidad (0/1/2)</h4>
+    </div>
+    <div class="grid-formulario">
+      <div class="campo">
+        <label>Actividad sexual</label>
+        <select formControlName="actividadSexual">
+          <option *ngFor="let nivel of niveles" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Masturbacion</label>
+        <select formControlName="masturbacion">
+          <option *ngFor="let nivel of niveles" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Promiscuidad</label>
+        <select formControlName="promiscuidad">
+          <option *ngFor="let nivel of niveles" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Disfunciones</label>
+        <select formControlName="disfunciones">
+          <option *ngFor="let nivel of niveles" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Erotismo</label>
+        <select formControlName="erotismo">
+          <option *ngFor="let nivel of niveles" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label>Parafilias</label>
+        <select formControlName="parafilias">
+          <option *ngFor="let nivel of niveles" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>

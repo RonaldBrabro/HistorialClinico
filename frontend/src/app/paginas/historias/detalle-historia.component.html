@@ -1,0 +1,35 @@
+<div class="tarjeta" *ngIf="historia">
+  <div class="seccion-titulo">
+    <div>
+      <h2>Detalle de historia clinica</h2>
+      <p>Revision rapida de datos clave.</p>
+    </div>
+    <a class="boton" [routerLink]="['/historias-clinicas', historia.id, 'editar']">Editar</a>
+  </div>
+
+  <div class="grid-formulario">
+    <div>
+      <span class="badge"># Historia</span>
+      <h3>{{ historia.encabezado?.numeroHistoriaClinica }}</h3>
+    </div>
+    <div>
+      <span class="badge">Fecha</span>
+      <h3>{{ historia.encabezado?.fecha }}</h3>
+    </div>
+    <div>
+      <span class="badge">Paciente</span>
+      <h3>{{ historia.seccionA?.['nombresApellidos'] }}</h3>
+    </div>
+    <div>
+      <span class="badge">Correo</span>
+      <h3>{{ historia.seccionA?.['datosInstitucionales']?.['correo'] || '-' }}</h3>
+    </div>
+  </div>
+
+  <div class="tarjeta" style="margin-top: 1.5rem;">
+    <h3>Resumen</h3>
+    <p>Esta vista resume datos generales. Los detalles completos se gestionan en la edicion.</p>
+  </div>
+</div>
+
+<p *ngIf="cargando">Cargando detalle...</p>

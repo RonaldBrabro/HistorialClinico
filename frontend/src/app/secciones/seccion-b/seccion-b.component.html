@@ -1,0 +1,21 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>B. Motivo de consulta</h3>
+  </div>
+
+  <div class="lista-check">
+    <label *ngFor="let opcion of motivos">
+      <input
+        type="checkbox"
+        [checked]="utilidades.opcionSeleccionada(obtenerArray(), opcion)"
+        (change)="utilidades.alternarOpcion(obtenerArray(), opcion)"
+      />
+      {{ opcion }}
+    </label>
+  </div>
+
+  <div class="campo">
+    <label>Desde cuando</label>
+    <input type="date" formControlName="desdeCuando" />
+  </div>
+</section>

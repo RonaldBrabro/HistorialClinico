@@ -1,0 +1,43 @@
+<section class="seccion-colapsable" [formGroup]="grupo">
+  <div class="seccion-titulo">
+    <h3>G. Antecedentes familiares</h3>
+  </div>
+  <div class="grid-formulario">
+    <div class="campo">
+      <label>Enfermedades catastroficas</label>
+      <select formControlName="enfermedadesCatastroficas">
+        <option value="">Seleccione</option>
+        <option>Si</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Discapacidades</label>
+      <select formControlName="discapacidades">
+        <option value="">Seleccione</option>
+        <option>Si</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Trastornos psicologicos</label>
+      <select formControlName="trastornosPsicologicos">
+        <option value="">Seleccione</option>
+        <option>Si</option>
+        <option>No</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label>Problemas de aprendizaje</label>
+      <select formControlName="problemasAprendizaje">
+        <option value="">Seleccione</option>
+        <option>Si</option>
+        <option>No</option>
+      </select>
+    </div>
+  </div>
+  <div class="campo">
+    <label>Otros relevantes</label>
+    <input type="text" formControlName="otrosRelevantes" />
+  </div>
+</section>

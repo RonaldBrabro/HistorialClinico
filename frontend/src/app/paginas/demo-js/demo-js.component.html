@@ -1,0 +1,34 @@
+<div class="tarjeta">
+  <div class="seccion-titulo">
+    <div>
+      <h2>Demostracion de JavaScript puro</h2>
+      <p>Seccion de pruebas para manipulacion del DOM.</p>
+    </div>
+  </div>
+
+  <!-- seleccionarPorClase() y seleccionarPorEtiqueta(): resaltan elementos por clase y etiqueta -->
+  <!-- cambiarTexto(): actualiza el texto principal para mostrar cambios inmediatos -->
+  <p id="texto-dinamico" class="item-demo">Texto inicial para modificar.</p>
+  <p class="item-demo">Elemento seleccionado por clase.</p>
+  <button class="boton" id="boton-texto" type="button">Cambiar texto</button>
+
+  <!-- cambiarEstilo(): altera color y tamanio al pasar el mouse -->
+  <button class="boton-secundario" id="boton-estilo" type="button">Cambiar estilo</button>
+
+  <!-- alternarVisibilidad(): muestra u oculta el bloque informativo -->
+  <button class="boton-secundario" id="boton-visibilidad" type="button">Mostrar/ocultar bloque</button>
+  <div id="bloque-ocultable" class="bloque-destacado">
+    Este bloque cambia su visibilidad desde JavaScript.
+  </div>
+
+  <!-- agregarFilaLista(): agrega items a la lista; eliminarUltimoItem(): remueve el ultimo -->
+  <div class="campo">
+    <label for="entrada-item">Nuevo item</label>
+    <input id="entrada-item" type="text" placeholder="Escribe y presiona Enter" />
+  </div>
+  <div class="acciones-demo">
+    <button class="boton" id="boton-agregar" type="button">Agregar item</button>
+    <button class="boton-secundario" id="boton-eliminar" type="button">Eliminar ultimo</button>
+  </div>
+  <ul id="lista-dinamica"></ul>
+</div>
